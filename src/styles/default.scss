@@ -1,0 +1,164 @@
+body {
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+@mixin block-design {
+  background-color: aliceblue;
+  box-shadow: 3px 7px 20px black;
+  color: $dark-green;
+  height: 100px;
+}
+
+.to-do-footer {
+  color: $dark-green;
+  display: flex;
+  justify-content: flex-end;
+  p {
+    background-color: aliceblue;
+    box-shadow: 3px 3px 5px black;
+    padding: 20px;
+  }
+  a {
+    color: $dark-green;
+  }
+}
+
+.actions-item {
+  display: flex;
+  margin-top: 30px;
+  width: 150px;
+  justify-content: space-between;
+  div {
+    width: 30px;
+    cursor: pointer;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.completed, .uncompleted {
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-item-block {
+  input, button {
+    color: $dark-green;
+  }
+}
+
+.completed, .uncompleted, .add-item-block {
+  @include block-design;
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+}
+
+.to-do {
+  width: 900px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.to-do-header{
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+}
+
+.item {
+  background-color: aliceblue;
+  box-shadow: 3px 3px 5px black;
+  color: $dark-green;
+  min-height: 100px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.logo {
+  @include block-design;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: large;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 20px;
+  a {
+    color: $light-green;
+    text-decoration: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: -20px;
+      background-image: url("./assets/logo.png");
+      background-size: 18px;
+    }
+  }
+  span {
+    color: $dark-green;
+  }
+}
+
+.to-do-body {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+
+.screen-background {
+  height: $box_h;
+  width: $box_h;
+  overflow-y: auto;
+  width: 100vw;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+
+}
+
+.screen-background::after{
+  z-index: -1;
+  position: fixed;
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $view_h;
+  background: linear-gradient($origin, $color1 0%, $color2 25%, $color3 50%, $color2 75%, $color1 100%);
+  animation: animatebg $duration*5 infinite linear;
+}
+
+@keyframes animatebg{
+  0%{
+    top: 0;
+  }
+  50%{
+    top: $box_h - $view_h;
+  }
+  100%{
+    top: 0;
+  }
+}
