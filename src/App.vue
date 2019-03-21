@@ -8,10 +8,10 @@
             <completed-items></completed-items>
             <uncompleted-items></uncompleted-items>
           </div>
-          <div class="to-do-body">
-            <item></item>
+          <div class="to-do-body" v-for="item in items" :key="item.id">
+            <item :item = "item"></item>
           </div>
-          <div class="to-do-footer">
+          <div class="to-do-footer" >
             <ToDoFooter></ToDoFooter>
           </div>
         </div>
@@ -26,9 +26,28 @@ import Item from './components/Item.vue'
 import LogoType from './components/LogoType.vue'
 import ToDoFooter from './components/ToDoFooter.vue'
 import UncompletedItems from './components/UncompletedItems.vue'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'App',
+  computed: {
+    ...mapGetters([
+      'items'
+    ])
+  },
+  created () {
+    this.$store.dispatch('getItems')
+  },
+  // methods: {
+  //   ...mapActions([
+  //     'getItems'
+  //   ])
+  // },
+  // watch: {
+  //   ...mapActions([
+  //     'getItems'
+  //   ])
+  // },
+
   components: {
     AddItems,
     CompletedItems,

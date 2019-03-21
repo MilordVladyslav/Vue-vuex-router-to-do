@@ -1,8 +1,7 @@
 <template>
   <div class="item">
     <p>
-      lorem ipsum dolor sit amet un doloren de quatro qui bone.
-      Uncaber dezoenar kube debero onfalte vigero
+      {{item.value}}
     </p>
     <div class="actions-item">
       <div class="complete-item">
@@ -20,7 +19,8 @@
 
 <script>
 export default {
-  name: 'Item'
+  name: 'Item',
+  props: ['item']
 }
 </script>
 
