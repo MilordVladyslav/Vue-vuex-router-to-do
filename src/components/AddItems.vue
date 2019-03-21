@@ -40,7 +40,7 @@ export default {
           value: addedItem,
           completed: false
         }
-        this.$store.dispatch('addItem', addedItem).then(() => {
+        this.$store.dispatch('addItem', addedItem, 'create').then(() => {
           this.addedItem = ''
         })
       }

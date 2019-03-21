@@ -85,7 +85,55 @@ app.post('/items', (req, res) => {
       completed: req.body.completed
     }
     items.push(newItem)
-    console.log(req.body.value)
+    // if (act === 'complete') {
+    //   items.map((item) => {
+    //     if (item.id === req.body.id) item.completed = true
+    //   })
+    // }
+    // if (act === 'update') {
+    //   items.map((item) => {
+    //     if (item.id === req.body.id) item.value = req.body.value
+    //   })
+    // }
+    fs.writeFile(ITEMS_DATA_FILE, JSON.stringify(items, null, 4), () => {
+      res.setHeader('Cache-Control', 'no-cache')
+      res.json(items)
+    })
+  })
+})
+
+app.post('/items/complete', (req, res) => {
+  fs.readFile(ITEMS_DATA_FILE, (err, data) => {
+    const items = JSON.parse(data)
+    items.map((item) => {
+      if (item.id === req.body.id) item.completed = true
+    })
+    fs.writeFile(ITEMS_DATA_FILE, JSON.stringify(items, null, 4), () => {
+      res.setHeader('Cache-Control', 'no-cache')
+      res.json(items)
+    })
+  })
+})
+
+app.post('/items/update', (req, res) => {
+  fs.readFile(ITEMS_DATA_FILE, (err, data) => {
+    const items = JSON.parse(data)
+    items.map((item) => {
+      if (item.id === req.body.id) item.value = req.body.value
+    })
+    fs.writeFile(ITEMS_DATA_FILE, JSON.stringify(items, null, 4), () => {
+      res.setHeader('Cache-Control', 'no-cache')
+      res.json(items)
+    })
+  })
+})
+
+app.post('/items/delete', (req, res) => {
+  fs.readFile(ITEMS_DATA_FILE, (err, data) => {
+    const items = JSON.parse(data)
+
+    const indexToRemove = items.findIndex(item => item.id === req.body.id)
+    items.splice(indexToRemove, 1)
     fs.writeFile(ITEMS_DATA_FILE, JSON.stringify(items, null, 4), () => {
       res.setHeader('Cache-Control', 'no-cache')
       res.json(items)

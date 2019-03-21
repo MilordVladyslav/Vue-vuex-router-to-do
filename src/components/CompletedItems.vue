@@ -1,13 +1,24 @@
 <template>
-  <div class="completed">
-    <p>Completed items</p>
-    <p>7</p>
+  <div>
+    <div class="to-do-body" v-for="item in completedItems" :key="item.id">
+      <item :item = "item"></item>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Item from './Item.vue'
 export default {
-  name: 'CompletedItems'
+  name: 'CompletedItems',
+  computed: {
+    ...mapGetters([
+      'completedItems'
+    ])
+  },
+  components: {
+    Item
+  }
 }
 </script>
 

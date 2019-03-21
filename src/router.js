@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-
+// import Home from './views/Home.vue'
+import CompletedItems from './components/CompletedItems.vue'
+import UncompletedItems from './components/UncompletedItems.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -9,17 +10,18 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/uncompleted',
+      name: 'uncompleted',
+      component: UncompletedItems
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/completed',
+      name: 'completed',
+      component: CompletedItems
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })

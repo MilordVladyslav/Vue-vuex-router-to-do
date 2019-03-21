@@ -23,10 +23,27 @@ export default new Vuex.Store({
       return axios.post('/api/items', addedItem).then((response) => {
         commit('UPDATE_ITEMS', response.data)
       })
+    },
+    updateItem ({ commit }, updatedItem) {
+      return axios.post('api/items/update', updatedItem).then((response) => {
+        commit('UPDATE_ITEMS', response.data)
+      })
+    },
+    completeItem ({ commit }, completedItem) {
+      return axios.post('api/items/complete', completedItem).then((response) => {
+        commit('UPDATE_ITEMS', response.data)
+      })
+    },
+    deleteItem ({ commit }, deletedItem) {
+      return axios.post('api/items/delete', deletedItem).then((response) => {
+        commit('UPDATE_ITEMS', response.data)
+      })
     }
   },
   getters: {
     items: state => state.items,
+    uncompletedItems: state => state.items.filter(item => item.completed !== true),
+    completedItems: state => state.items.filter(item => item.completed === true),
     itemsFromId: (state) => (id) => {
       return state.items.find(item => item.id === id)
     }

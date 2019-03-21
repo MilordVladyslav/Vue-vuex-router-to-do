@@ -5,12 +5,20 @@
           <div class="to-do-header">
             <LogoType></LogoType>
             <AddItems></AddItems>
-            <completed-items></completed-items>
-            <uncompleted-items></uncompleted-items>
+            <router-link to="/completed">
+              <div class="completed">
+                <p>Completed items</p>
+                <p>{{completedItems.length}}</p>
+              </div>
+            </router-link>
+            <router-link to="/uncompleted">
+              <div class="uncompleted">
+                <p>Uncompleted items</p>
+                <p>{{uncompletedItems.length}}</p>
+              </div>
+            </router-link>
           </div>
-          <div class="to-do-body" v-for="item in items" :key="item.id">
-            <item :item = "item"></item>
-          </div>
+           <router-view></router-view>
           <div class="to-do-footer" >
             <ToDoFooter></ToDoFooter>
           </div>
@@ -21,17 +29,16 @@
 
 <script>
 import AddItems from './components/AddItems.vue'
-import CompletedItems from './components/CompletedItems.vue'
-import Item from './components/Item.vue'
 import LogoType from './components/LogoType.vue'
 import ToDoFooter from './components/ToDoFooter.vue'
-import UncompletedItems from './components/UncompletedItems.vue'
 import { mapGetters } from 'vuex'
 export default {
   name: 'App',
   computed: {
     ...mapGetters([
-      'items'
+      'items',
+      'completedItems',
+      'uncompletedItems'
     ])
   },
   created () {
@@ -50,11 +57,8 @@ export default {
 
   components: {
     AddItems,
-    CompletedItems,
-    Item,
     LogoType,
-    ToDoFooter,
-    UncompletedItems
+    ToDoFooter
   }
 }
 
