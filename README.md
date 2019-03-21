@@ -22,3 +22,10 @@ npm run build
 ```
 npm run lint
 ```
+# Description
+
+Create, Read, Update, Delete to-do application with animation-effects.
+Powered by VUE.JS, vue-cli, vue-router, api technologies.
+With single-file component approach.
+Created by MilordVladyslav
+
