@@ -1,0 +1,7 @@
+@mixin block-design {
+  background-color: aliceblue;
+  box-shadow: 3px 7px 20px black;
+  color: $dark-green;
+  height: 100px;
+  transition: all .3s;
+}

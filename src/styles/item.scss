@@ -1,0 +1,45 @@
+.item {
+  background-color: aliceblue;
+  box-shadow: 3px 3px 5px black;
+  color: $dark-green;
+  min-height: 100px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+  line-height: 32px;
+}
+.change-item {
+  input {
+    color: $dark-green;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+    border: 2px solid $light-green;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: $light-green;
+    border: 2px solid $light-green;
+    color: $dark-green;
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+}
+.actions-item {
+  display: flex;
+  margin-top: 30px;
+  width: 150px;
+  justify-content: space-between;
+  div {
+    width: 30px;
+    cursor: pointer;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+

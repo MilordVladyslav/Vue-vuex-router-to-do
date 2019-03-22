@@ -1,5 +1,6 @@
 <template>
   <div class="item">
+    <transition name="fade" mode="out-in">
     <div class="change-item" v-if="changeForm">
       <form v-on:submit.prevent>
         <p v-if="errorMessage" class="errorMessageColor"> {{ errorMessage }}</p>
@@ -10,6 +11,7 @@
       <p v-else>
         {{item.value}}
       </p>
+    </transition>
     <div class="actions-item">
       <div class="complete-item" @click="changeComplete()" v-show="!item.completed">
         <img src="../assets/update.png" alt="">

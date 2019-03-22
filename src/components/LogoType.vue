@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <h1 class="title"><a href="#"><span>ue</span> to-do </a></h1>
+    <h1 class="title"><a href="/"><span>ue</span> to-do </a></h1>
   </div>
 </template>
 

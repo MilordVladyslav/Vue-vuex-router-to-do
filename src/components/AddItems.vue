@@ -1,6 +1,11 @@
 <template>
   <div class="add-item-block">
-    <p :class="{ errorMessageColor: errorMessage }">{{ errorMessage || 'okay' }}</p>
+    <transition name="fade" mode="out-in">
+      <div v-if="errorMessage">
+        <p class="errorMessageColor">{{ errorMessage}}</p>
+      </div>
+      <p v-else>Okay</p>
+    </transition>
     <form action="#" v-on:submit.prevent>
       <input type="text" v-model="addedItem">
       <button @click="addItem(addedItem)">Add</button>

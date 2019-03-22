@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div class="to-do-body" v-for="item in completedItems" :key="item.id">
-      <item :item = "item"></item>
-    </div>
+    <transition-group name="fade" mode="out-in">
+      <div class="to-do-body" v-for="item in completedItems" :key="item.id">
+          <item :item = "item"></item>
+      </div>
+    </transition-group>
   </div>
 </template>
 

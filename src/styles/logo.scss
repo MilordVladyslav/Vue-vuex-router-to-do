@@ -1,0 +1,31 @@
+.logo {
+  @include block-design;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: large;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 20px;
+  a {
+    color: $light-green;
+    text-decoration: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: -20px;
+      background-image: url("./assets/logo.png");
+      background-size: 18px;
+    }
+  }
+  span {
+    color: $dark-green;
+  }
+}

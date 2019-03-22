@@ -1,0 +1,16 @@
+.to-do-footer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: $dark-green;
+  display: flex;
+  justify-content: flex-end;
+  p {
+    background-color: aliceblue;
+    box-shadow: 3px 3px 5px black;
+    padding: 20px;
+  }
+  a {
+    color: $dark-green;
+    text-decoration: underline;
+  }
+}

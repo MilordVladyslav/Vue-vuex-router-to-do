@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <transition-group name="fade" mode="out-in">
     <div class="to-do-body" v-for="item in uncompletedItems" :key="item.id">
       <item :item = "item"></item>
     </div>
-  </div>
+  </transition-group>
 </template>
 
 <script>

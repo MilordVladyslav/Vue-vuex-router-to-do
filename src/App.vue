@@ -18,7 +18,9 @@
               </div>
             </router-link>
           </div>
+          <transition name="fade" mode="out-in">
            <router-view></router-view>
+          </transition>
           <div class="to-do-footer" >
             <ToDoFooter></ToDoFooter>
           </div>
