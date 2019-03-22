@@ -29,3 +29,5 @@ Powered by VUE.JS, vue-cli, vue-router, api technologies.
 With single-file component approach.
 Created by MilordVladyslav
 
+![alt text](screenshot.png "Screenshot")​
+

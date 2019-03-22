@@ -14,13 +14,13 @@
     </transition>
     <div class="actions-item">
       <div class="complete-item" @click="changeComplete()" v-show="!item.completed">
-        <img src="../assets/update.png" alt="">
+        <img src="../assets/complete.png" alt="">
       </div>
       <div class="update-item" @click="changeValue()">
         <img src="../assets/update.png" alt="">
       </div>
       <div class="delete-item" @click="deleteItem()">
-        <img src="../assets/update.png" alt="">
+        <img src="../assets/delete.png" alt="">
       </div>
     </div>
   </div>
