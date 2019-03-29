@@ -24,7 +24,7 @@ npm run lint
 ```
 # Description
 
-Create, Read, Update, Delete to-do application with animation-effects.
+Create, Read, Update, Delete to-do SPA with animation-effects.
 Powered by VUE.JS, vue-cli, vue-router, API technologies.
 With single-file component approach.
 Created by MilordVladyslav
